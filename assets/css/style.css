@@ -447,6 +447,7 @@ header .btn,
     margin-bottom: 1rem;
     overflow: hidden;
 }
+
 .accordion-button {
     background-color: transparent !important;
     color: var(--color-text-main) !important;
@@ -456,17 +457,21 @@ header .btn,
     padding: 1.25rem 1.5rem;
     transition: color 0.2s ease;
 }
+
 .accordion-button:not(.collapsed) {
     color: var(--color-primary) !important;
     border-bottom: 1px solid var(--glass-border) !important;
 }
+
 .accordion-button::after {
     filter: var(--accordion-arrow-filter, none);
     transition: transform 0.2s ease;
 }
+
 [data-bs-theme="dark"] .accordion-button::after {
     filter: invert(1) hue-rotate(180deg);
 }
+
 .accordion-body {
     padding: 1.25rem 1.5rem;
     background-color: rgba(255, 255, 255, 0.02) !important;
@@ -491,6 +496,7 @@ select option {
     color: #0f172a !important;
     box-shadow: 0 10px 30px rgba(13, 148, 136, 0.08);
 }
+
 [data-bs-theme="dark"] .booking-card-light {
     background-color: rgba(15, 23, 42, 0.85) !important;
     color: #f8fafc !important;
@@ -499,7 +505,9 @@ select option {
 /* Subtle Alternate Background for Important Sections */
 .bg-subtle-accent {
     background: linear-gradient(135deg, rgba(13, 148, 136, 0.06) 0%, rgba(14, 165, 233, 0.06) 100%) !important;
-}/* Premium Navbar Styles */
+}
+
+/* Premium Navbar Styles */
 .header-premium {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
@@ -602,6 +610,7 @@ select option {
         margin-top: 1rem;
         gap: 1rem !important;
     }
+
     .nav-links-premium .nav-link {
         width: max-content;
     }
@@ -644,4 +653,65 @@ select option {
 
 .custom-toggler:focus {
     box-shadow: none;
+}
+
+/* --- CRITICAL MOBILE FIXES --- */
+@media (max-width: 1199.98px) {
+
+    /* Stop underline from stretching across screen */
+    .nav-links-premium .nav-item {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .nav-links-premium .nav-link {
+        width: max-content !important;
+        display: inline-block !important;
+    }
+
+    /* Stack and center the action buttons */
+    .action-buttons-premium {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-top: 1.5rem !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Force high-contrast theme icon */
+    .theme-toggle-btn {
+        background: #ffffff !important;
+        color: #000000 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 46px !important;
+        height: 46px !important;
+        border-radius: 50% !important;
+        border: none !important;
+    }
+
+    [data-bs-theme="light"] .theme-toggle-btn {
+        background: #000000 !important;
+        color: #ffffff !important;
+    }
+
+    .theme-toggle-btn svg {
+        width: 22px !important;
+        height: 22px !important;
+        min-width: 22px !important;
+        min-height: 22px !important;
+        fill: currentColor !important;
+        display: block !important;
+    }
+
+    /* Center the login button text */
+    .btn-premium-login {
+        text-align: center !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0.75rem 2.5rem !important;
+    }
 }
