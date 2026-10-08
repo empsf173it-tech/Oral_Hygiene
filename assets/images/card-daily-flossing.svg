@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0f2f1"/>
+      <stop offset="100%" style="stop-color:#80cbc4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <!-- Flossing illustration -->
+  <g transform="translate(400,185)" opacity="0.85">
+    <!-- Two adjacent teeth -->
+    <path d="M-25,-55 C-40,-55 -48,-35 -48,-15 C-48,10 -38,35 -30,55 C-27,62 -22,62 -19,55 C-14,40 -12,25 -10,35" fill="#b2dfdb" stroke="#00695c" stroke-width="2"/>
+    <path d="M10,35 C12,25 14,40 19,55 C22,62 27,62 30,55 C38,35 48,10 48,-15 C48,-35 40,-55 25,-55 C15,-55 12,-42 10,-42" fill="#b2dfdb" stroke="#00695c" stroke-width="2"/>
+    <!-- Floss thread between teeth -->
+    <line x1="0" y1="-70" x2="0" y2="50" stroke="#00897b" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <line x1="0" y1="-55" x2="0" y2="-10" stroke="#004d40" stroke-width="2"/>
+    <!-- Floss container -->
+    <rect x="-15" y="-95" width="30" height="25" rx="5" fill="#26a69a" stroke="#004d40" stroke-width="1.5"/>
+    <rect x="-10" y="-85" width="20" height="10" rx="3" fill="#4db6ac"/>
+    <!-- Sparkles -->
+    <circle cx="-55" cy="-30" r="3" fill="#ffd600" opacity="0.6"/>
+    <circle cx="55" cy="-30" r="3" fill="#ffd600" opacity="0.6"/>
+    <circle cx="0" cy="65" r="2.5" fill="#ffd600" opacity="0.5"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0f7fa"/>
+      <stop offset="100%" style="stop-color:#80deea"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <!-- Tooth with sparkle icon -->
+  <g transform="translate(400,180)" fill="#00796b" opacity="0.85">
+    <path d="M-30,-60 C-50,-60 -60,-40 -60,-15 C-60,15 -45,45 -35,70 C-30,82 -20,82 -15,70 C-8,50 -5,30 0,50 C5,30 8,50 15,70 C20,82 30,82 35,70 C45,45 60,15 60,-15 C60,-40 50,-60 30,-60 C15,-60 10,-45 0,-45 C-10,-45 -15,-60 -30,-60Z" stroke="#004d40" stroke-width="2"/>
+    <!-- Sparkle -->
+    <circle cx="70" cy="-50" r="4" fill="#ffd600"/>
+    <line x1="70" y1="-62" x2="70" y2="-38" stroke="#ffd600" stroke-width="2"/>
+    <line x1="58" y1="-50" x2="82" y2="-50" stroke="#ffd600" stroke-width="2"/>
+    <!-- Brush strokes -->
+    <line x1="-80" y1="20" x2="-65" y2="5" stroke="#26a69a" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-85" y1="30" x2="-70" y2="15" stroke="#26a69a" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-90" y1="40" x2="-75" y2="25" stroke="#26a69a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

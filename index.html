@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Oral Care | Premium Oral Care Center</title>
+    <meta name="description"
+        content="Premium Premium Oral Care and Oral Care Center. Professional cleaning, fillings, braces, teeth whitening, and dental implants. Book your appointment today.">
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <link rel="icon" href="assets/images/logo11.png" type="image/png">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        }
+        const savedDir = localStorage.getItem('dir');
+        if (savedDir) {
+            document.documentElement.setAttribute('dir', savedDir);
+        }
+    </script>
+    <style>
+        /* Force hero text white in all themes */
+        .hero-section h1,
+        .hero-section h2,
+        .hero-section p {
+            color: #ffffff !important;
+        }
+
+        .hero-section h1 span:not(.text-gradient) {
+            color: #ffffff !important;
+        }
+
+        /* Card Hover Effects */
+        .service-card,
+        .industry-card,
+        .card,
+        .bg-body-surface .col-md-4>.p-4.border.rounded,
+        .network-badge {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out !important;
+        }
+
+        .service-card:hover,
+        .industry-card:hover,
+        .card:hover,
+        .bg-body-surface .col-md-4>.p-4.border.rounded:hover,
+        .network-badge:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.4), 0 0 20px rgba(13, 148, 136, 0.2) !important;
+            /* Glow effect */
+            border-color: var(--bs-primary) !important;
+            z-index: 1;
+        }
+
+        /* Trusted By Logo Cards */
+        .logo-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--color-text-muted);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-card svg {
+            transition: transform 0.4s ease, fill 0.4s ease;
+            fill: var(--color-text-muted);
+        }
+
+        .logo-card span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: color 0.4s ease;
+        }
+
+        /* Hover Styles per Brand */
+        .logo-card-ada:hover {
+            border-color: rgba(13, 148, 136, 0.4) !important;
+            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.15), 0 0 15px rgba(13, 148, 136, 0.05) !important;
+            transform: translateY(-5px);
+        }
+
+        .logo-card-ada:hover svg {
+            fill: #0d9488 !important;
+            transform: scale(1.1);
+        }
+
+        .logo-card-ada:hover span {
+            color: #0d9488 !important;
+        }
+
+        .logo-card-invisalign:hover {
+            border-color: rgba(14, 165, 233, 0.4) !important;
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15), 0 0 15px rgba(14, 165, 233, 0.05) !important;
+            transform: translateY(-5px);
+        }
+
+        .logo-card-invisalign:hover svg {
+            fill: #0ea5e9 !important;
+            transform: scale(1.1);
+        }
+
+        .logo-card-invisalign:hover span {
+            color: #0ea5e9 !important;
+        }
+
+        .logo-card-oralb:hover {
+            border-color: rgba(2, 132, 199, 0.4) !important;
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15), 0 0 15px rgba(2, 132, 199, 0.05) !important;
+            transform: translateY(-5px);
+        }
+
+        .logo-card-oralb:hover svg {
+            fill: #0284c7 !important;
+            transform: scale(1.1);
+        }
+
+        .logo-card-oralb:hover span {
+            color: #0284c7 !important;
+        }
+
+        .logo-card-colgate:hover {
+            border-color: rgba(239, 68, 68, 0.4) !important;
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.15), 0 0 15px rgba(239, 68, 68, 0.05) !important;
+            transform: translateY(-5px);
+        }
+
+        .logo-card-colgate:hover svg {
+            fill: #ef4444 !important;
+            transform: scale(1.1);
+        }
+
+        .logo-card-colgate:hover span {
+            color: #ef4444 !important;
+        }
+
+        .logo-card-straumann:hover {
+            border-color: rgba(79, 70, 229, 0.4) !important;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.15), 0 0 15px rgba(79, 70, 229, 0.05) !important;
+            transform: translateY(-5px);
+        }
+
+        .logo-card-straumann:hover svg {
+            fill: #4f46e5 !important;
+            transform: scale(1.1);
+        }
+
+        .logo-card-straumann:hover span {
+            color: #4f46e5 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Navigation -->
+        <!-- Premium Header / Navigation -->
+    <header class="header-premium sticky-top" id="main-header">
+        <nav class="navbar navbar-expand-xl py-3">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-3 fs-4 fw-bold premium-brand" href="index.html">
+                    <img src="assets/images/logo11.png" alt="Premium Oral Care Logo" width="40" height="40"
+                        class="rounded-circle brand-logo-glow">
+                    <span>Premium Oral Care</span>
+                </a>
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 nav-links-premium">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="solutions.html">Treatments</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="d-flex gap-3 align-items-center action-buttons-premium">
+                        <button class="btn theme-toggle-btn d-flex align-items-center justify-content-center"
+                            onclick="let themeTarget = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-bs-theme', themeTarget); localStorage.setItem('theme', themeTarget);"
+                            title="Toggle Theme">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                class="bi bi-moon-stars-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+                                <path
+                                    d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+                            </svg>
+                        </button>
+                        <a href="login.html" class="btn btn-premium-login d-flex align-items-center justify-content-center">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section: Hero Banner -->
+        <section class="hero-section text-center position-relative text-white"
+            style="background-image: url('assets/images/home-hero-dental.jpg'); background-size: cover; background-position: center;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75"></div>
+            <div class="container position-relative z-1">
+                <h1 class="mb-4">Premium & Personalized <span class="text-gradient">Oral Care Services</span></h1>
+                <p class="lead mx-auto mb-5" style="max-width: 800px;">Expert dental treatments including whitening,
+                    fillings, braces, implants, and cleanings for a healthy, beautiful smile.</p>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <a href="contact.html" class="btn btn-primary-custom btn-lg">Book Appointment</a>
+                    <a href="services.html" class="btn btn-outline-custom btn-lg text-white border-white">View
+                        Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Trusted By / Client Logos -->
+        <section class="py-5 border-top border-bottom"
+            style="border-color: var(--glass-border) !important; background: linear-gradient(180deg, rgba(13, 148, 136, 0.02) 0%, rgba(14, 165, 233, 0.02) 100%);">
+            <div class="container text-center">
+                <h2 class="mb-4 text-uppercase fw-bold text-center"
+                    style="letter-spacing: 2px; font-size: clamp(1.25rem, 2.5vw, 1.75rem); color: var(--color-text-muted); opacity: 0.85;">
+                    Certified & Partnered with <span class="text-gradient">Leading Health Brands</span>
+                </h2>
+                <div class="d-flex justify-content-center gap-4 flex-wrap align-items-center mt-4">
+                    <!-- ADA -->
+                    <div class="logo-card logo-card-ada">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path
+                                d="M19 10.5h-5.5V5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v5.5H5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5h5.5V19c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5.5H19c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z" />
+                        </svg>
+                        <span>ADA Member</span>
+                    </div>
+                    <!-- Invisalign -->
+                    <div class="logo-card logo-card-invisalign">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 13c-2.33 0-4.31-1.46-5.11-3.5.2-.08.41-.15.63-.22.68 1.76 2.39 3.02 4.48 3.02s3.8-1.26 4.48-3.02c.22.07.43.14.63.22-.8 2.04-2.78 3.5-5.11 3.5z" />
+                        </svg>
+                        <span>Invisalign®</span>
+                    </div>
+                    <!-- Oral-B -->
+                    <div class="logo-card logo-card-oralb">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path
+                                d="M12 2.25L3.25 7.3v9.4L12 21.75l8.75-5.05v-9.4L12 2.25zm6.5 13.25l-6.5 3.75-6.5-3.75V8.5l6.5-3.75 6.5 3.75v7zM12 7l-4 2.3v5.4l4 2.3 4-2.3V9.3L12 7z" />
+                        </svg>
+                        <span>Oral-B</span>
+                    </div>
+                    <!-- Colgate -->
+                    <div class="logo-card logo-card-colgate">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12c0 3.08 1.4 5.84 3.6 6.7L4 22l4.3-1.4c1.1.4 2.3.6 3.7.6 5.52 0 10-4.48 10-10S17.52 2 12 2z" />
+                        </svg>
+                        <span>Colgate</span>
+                    </div>
+                    <!-- Straumann -->
+                    <div class="logo-card logo-card-straumann">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path
+                                d="M12 1.5L3 7.5v9l9 6 9-6v-9l-9-6zm7.5 14.25L12 20.25l-7.5-4.5V8.25L12 3.75l7.5 4.5v7.5zM12 6.75l-5.25 3.15v4.2L12 17.25l5.25-3.15v-4.2L12 6.75z" />
+                        </svg>
+                        <span>Straumann</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Services Overview -->
+        <section class="py-4 my-4">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="mb-5 text-center fw-bold">Our Featured <span class="text-gradient">Services</span></h2>
+                    <p>Expert dental care solutions for your teeth, gums, and overall oral health.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4 d-flex">
+                        <div
+                            class="service-card text-center w-100 h-100 p-0 overflow-hidden bg-transparent border border-secondary rounded">
+                            <img src="assets/images/card-preventative-cleaning.jpg" alt="Preventative Cleaning"
+                                class="w-100" style="height: 200px; object-fit: cover;">
+                            <div class="p-4">
+                                <h4>Preventative Cleaning</h4>
+                                <p class="text-muted">Professional deep cleanings, hygiene therapies, and scaling to
+                                    keep your smile healthy and cavity-free.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <div
+                            class="service-card text-center w-100 h-100 p-0 overflow-hidden bg-transparent border border-secondary rounded">
+                            <img src="assets/images/card-composite-fillings.jpg" alt="Composite Fillings" class="w-100"
+                                style="height: 200px; object-fit: cover;">
+                            <div class="p-4">
+                                <h4>Composite Fillings</h4>
+                                <p class="text-muted">Safe, natural-looking, tooth-colored restorations that seamlessly
+                                    repair cavities and cracks.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <div
+                            class="service-card text-center w-100 h-100 p-0 overflow-hidden bg-transparent border border-secondary rounded">
+                            <img src="assets/images/card-orthodontics-braces.jpg" alt="Orthodontics & Braces"
+                                class="w-100" style="height: 200px; object-fit: cover;">
+                            <div class="p-4">
+                                <h4>Orthodontics & Braces</h4>
+                                <p class="text-muted">Advanced braces and clear aligner systems tailored to align your
+                                    teeth comfortably and efficiently.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Why Choose Us -->
+        <section class="py-5">
+            <div class="container text-center">
+                <h2 class="mb-2 text-center fw-bold">Why <span class="text-gradient">Choose Us</span></h2>
+                <p class="section-subheading text-center">We provide clinical excellence and compassionate,
+                    patient-first dental care.</p>
+                <!-- Why Choose Us Image Banner -->
+                <div class="mb-5">
+                    <img src="assets/images/dental-clinic-team.png" alt="Expert Dental Team"
+                        class="img-fluid rounded-4 shadow-lg border border-secondary w-100"
+                        style="max-height: 320px; object-fit: cover;">
+                </div>
+                <div class="row g-4 text-center">
+                    <div class="col-md-4 d-flex">
+                        <div class="p-0 overflow-hidden bg-transparent border border-secondary rounded w-100 h-100">
+                            <img src="assets/images/dental-sterilization.png" alt="Sterilization Standards"
+                                class="w-100" style="height: 160px; object-fit: cover;">
+                            <div class="p-4">
+                                <h4 class="text-primary mb-3">Safety &amp; Sterilization</h4>
+                                <p class="text-muted mb-0">We strictly adhere to ADA and OSHA sterilization guidelines,
+                                    ensuring an exceptionally clean and safe clinical environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <div class="p-0 overflow-hidden bg-transparent border border-secondary rounded w-100 h-100">
+                            <img src="assets/images/dental-implant.png" alt="Advanced Dental Technology" class="w-100"
+                                style="height: 160px; object-fit: cover;">
+                            <div class="p-4">
+                                <h4 class="text-primary mb-3">Advanced Technology</h4>
+                                <p class="text-muted mb-0">Our clinic utilizes digital 3D radiography, intraoral
+                                    scanners, and modern laser tools for highly precise diagnostics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <div class="p-0 overflow-hidden bg-transparent border border-secondary rounded w-100 h-100">
+                            <img src="assets/images/dental-patient-care.png" alt="Expert Dental Doctors" class="w-100"
+                                style="height: 160px; object-fit: cover;">
+                            <div class="p-4">
+                                <h4 class="text-primary mb-3">Expert Doctors</h4>
+                                <p class="text-muted mb-0">Our team consists of board-certified dentists, orthodontists,
+                                    and oral surgeons with years of combined experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Dental Specializations -->
+        <section class="py-5">
+            <div class="container text-center">
+                <h2 class="mb-2 text-center fw-bold">Our <span class="text-gradient">Dental Specializations</span></h2>
+                <p class="section-subheading text-center">Advanced clinical departments dedicated to specialized oral
+                    health procedures.</p>
+                <!-- Specializations Filter Tabs directly below heading -->
+                <div class="d-flex justify-content-center gap-2 gap-md-3 flex-wrap mb-4">
+                    <span class="badge bg-primary px-3 py-2 fs-6 rounded-pill">General Dentistry</span>
+                    <span
+                        class="badge border border-primary text-primary bg-primary bg-opacity-10 px-3 py-2 fs-6 rounded-pill">Cosmetic
+                        Care</span>
+                    <span
+                        class="badge border border-primary text-primary bg-primary bg-opacity-10 px-3 py-2 fs-6 rounded-pill">Orthodontics</span>
+                    <span
+                        class="badge border border-primary text-primary bg-primary bg-opacity-10 px-3 py-2 fs-6 rounded-pill">Pediatric
+                        Care</span>
+                    <span
+                        class="badge border border-primary text-primary bg-primary bg-opacity-10 px-3 py-2 fs-6 rounded-pill">Implantology</span>
+                </div>
+                <!-- Specializations Visual Grid -->
+                <div class="row g-4 text-center">
+                    <div class="col-md-4">
+                        <div class="position-relative overflow-hidden rounded-4 shadow-sm h-100">
+                            <img src="assets/images/invisalign-braces.png" alt="Orthodontics" class="w-100"
+                                style="height: 220px; object-fit: cover; display:block;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-start"
+                                style="background: linear-gradient(transparent, rgba(0,0,0,0.85));">
+                                <span class="badge bg-primary fs-6 mb-1">Orthodontics</span>
+                                <p class="text-white-50 small mb-0">Clear aligners & precision braces</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="position-relative overflow-hidden rounded-4 shadow-sm h-100">
+                            <img src="assets/images/porcelain-veneers.png" alt="Cosmetic Care" class="w-100"
+                                style="height: 220px; object-fit: cover; display:block;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-start"
+                                style="background: linear-gradient(transparent, rgba(0,0,0,0.85));">
+                                <span class="badge bg-primary fs-6 mb-1">Cosmetic Care</span>
+                                <p class="text-white-50 small mb-0">Veneers & laser teeth whitening</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="position-relative overflow-hidden rounded-4 shadow-sm h-100">
+                            <img src="assets/images/pediatric-dental.png" alt="Pediatric Care" class="w-100"
+                                style="height: 220px; object-fit: cover; display:block;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-start"
+                                style="background: linear-gradient(transparent, rgba(0,0,0,0.85));">
+                                <span class="badge bg-primary fs-6 mb-1">Pediatric Care</span>
+                                <p class="text-white-50 small mb-0">Gentle children's preventative care</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Patients We Treat -->
+        <section class="py-5 bg-body-tertiary">
+            <div class="container text-center">
+                <h2 class="mb-2 text-center fw-bold">Patients <span class="text-gradient">We Treat</span></h2>
+                <p class="section-subheading text-center">Customized oral healthcare pathways designed for every stage
+                    of life.</p>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-4 col-lg-2-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden shadow-sm rounded-4">
+                            <img src="assets/images/Pediatrics.jfif" alt="Pediatrics" class="card-img-top"
+                                style="height: 140px; object-fit: cover;">
+                            <div class="p-3 text-center">
+                                <h6 class="fw-bold mb-0 text-primary">Pediatrics</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden shadow-sm rounded-4">
+                            <img src="assets/images/TeenCare.jfif" alt="Teen Care" class="card-img-top"
+                                style="height: 140px; object-fit: cover;">
+                            <div class="p-3 text-center">
+                                <h6 class="fw-bold mb-0 text-primary">Teen Care</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden shadow-sm rounded-4">
+                            <img src="assets/images/Adults.jfif" alt="Adults" class="card-img-top"
+                                style="height: 140px; object-fit: cover;">
+                            <div class="p-3 text-center">
+                                <h6 class="fw-bold mb-0 text-primary">Adults</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden shadow-sm rounded-4">
+                            <img src="assets/images/Seniors.jfif" alt="Seniors" class="card-img-top"
+                                style="height: 140px; object-fit: cover;">
+                            <div class="p-3 text-center">
+                                <h6 class="fw-bold mb-0 text-primary">Seniors</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden shadow-sm rounded-4">
+                            <img src="assets/images/Cosmetics.jfif" alt="Cosmetics" class="card-img-top"
+                                style="height: 140px; object-fit: cover;">
+                            <div class="p-3 text-center">
+                                <h6 class="fw-bold mb-0 text-primary">Cosmetics</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Featured Case Studies -->
+        <!-- Section: Featured Case Studies / Gallery -->
+        <section class="py-4 mb-4">
+            <div class="container text-center">
+                <h2 class="mb-5 text-center fw-bold">Smile <span class="text-gradient">Gallery Highlights</span></h2>
+                <p class="text-muted mb-5 mx-auto" style="max-width: 600px;">Explore real patient dental transformations
+                    showcasing before-and-after highlights of our specialized treatments.</p>
+
+                <!-- Gallery Hero Image -->
+                <div class="row g-4 mb-5 text-center">
+                    <!-- Case Study 1 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden p-0">
+                            <img src="assets/images/restoration.jfif" alt="Full Mouth Restoration" class="card-img-top"
+                                style="height: 180px; object-fit: cover;">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span
+                                        class="badge bg-primary bg-opacity-10 text-primary border border-primary">Implants</span>
+                                    <span class="text-muted small">2025</span>
+                                </div>
+                                <h4 class="mb-2">Full Mouth Restoration</h4>
+                                <p class="text-muted small mb-0">Restored full smile functionality and aesthetics using
+                                    premium biocompatible titanium implants.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 2 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden p-0">
+                            <img src="assets/images/teeth-whitening.png" alt="Smile Makeover" class="card-img-top"
+                                style="height: 180px; object-fit: cover;">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span
+                                        class="badge bg-success bg-opacity-10 text-success border border-success">Whitening</span>
+                                    <span class="text-muted small">2025</span>
+                                </div>
+                                <h4 class="mb-2">Smile Makeover</h4>
+                                <p class="text-muted small mb-0">Enhanced dental aesthetics with premium porcelain
+                                    veneers and professional custom whitening solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 3 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden p-0">
+                            <img src="assets/images/Aligner.jfif" alt="Clear Aligner Therapy" class="card-img-top"
+                                style="height: 180px; object-fit: cover;">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span
+                                        class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary">Orthodontics</span>
+                                    <span class="text-muted small">2024</span>
+                                </div>
+                                <h4 class="mb-2">Clear Aligner Therapy</h4>
+                                <p class="text-muted small mb-0">Aligned crooked teeth in 12 months using custom
+                                    invisible aligners for a highly comfortable treatment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 4 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden p-0">
+                            <img src="assets/images/decaytreat.jfif" alt="Deep Decay Therapy" class="card-img-top"
+                                style="height: 180px; object-fit: cover;">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span
+                                        class="badge bg-warning bg-opacity-10 text-warning border border-warning">Restoration</span>
+                                    <span class="text-muted small">2024</span>
+                                </div>
+                                <h4 class="mb-2">Deep Decay Therapy</h4>
+                                <p class="text-muted small mb-0">Saved decayed tooth structures using state-of-the-art
+                                    painless composite filling therapies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 5 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden p-0">
+                            <img src="assets/images/preventive.jfif" alt="Preventative Sealants" class="card-img-top"
+                                style="height: 180px; object-fit: cover;">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span
+                                        class="badge bg-info bg-opacity-10 text-info border border-info">Pediatrics</span>
+                                    <span class="text-muted small">2024</span>
+                                </div>
+                                <h4 class="mb-2">Preventative Sealants</h4>
+                                <p class="text-muted small mb-0">Protected children's teeth from plaque and decay using
+                                    fluoride-rich preventative dental sealants.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 6 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden p-0">
+                            <img src="assets/images/Wisdom.jfif" alt="Wisdom Teeth Care" class="card-img-top"
+                                style="height: 180px; object-fit: cover;">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-danger bg-opacity-10 text-danger border border-danger">Oral
+                                        Surgery</span>
+                                    <span class="text-muted small">2023</span>
+                                </div>
+                                <h4 class="mb-2">Wisdom Teeth Care</h4>
+                                <p class="text-muted small mb-0">Extracted impacted third molars safely under local
+                                    anesthesia with minimal patient recovery time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="services.html" class="btn btn-outline-custom mt-3">View Services</a>
+            </div>
+        </section>
+
+
+        <!-- Section: Clinic Highlights -->
+        <section class="py-5 bg-body-surface">
+            <div class="container text-center">
+                <h2 class="mb-2 text-center fw-bold">Our Clinic <span class="text-gradient">Highlights</span></h2>
+                <p class="section-subheading text-center">Cutting-edge technology and clinical standards for your
+                    comfort.</p>
+                <div class="row g-5 align-items-center mt-2 text-start">
+                    <div class="col-lg-6">
+                        <img src="assets/images/dental-patient-care.png" alt="Comfortable Patient Experience"
+                            class="img-fluid rounded-4 shadow border border-secondary w-100"
+                            style="max-height: 280px; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-6 text-start">
+                        <p class="text-muted mb-4">Our state-of-the-art facility is designed to provide the most
+                            comfortable and advanced dental care experience possible.</p>
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-center mb-3 text-muted"><svg
+                                    class="text-primary me-2 flex-shrink-0" width="20" height="20" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                </svg> Intraoral 3D Scanners</li>
+                            <li class="d-flex align-items-center mb-3 text-muted"><svg
+                                    class="text-primary me-2 flex-shrink-0" width="20" height="20" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                </svg> Digital 3D X-Rays</li>
+                            <li class="d-flex align-items-center mb-3 text-muted"><svg
+                                    class="text-primary me-2 flex-shrink-0" width="20" height="20" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                </svg> Medical Lasers &amp; Pain-Free Anesthesia</li>
+                            <li class="d-flex align-items-center text-muted"><svg
+                                    class="text-primary me-2 flex-shrink-0" width="20" height="20" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                </svg> Certified Sterilization Labs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Testimonials -->
+        <section class="py-4 mb-4">
+            <div class="container text-center">
+                <h2 class="mb-5 text-center fw-bold">Patient <span class="text-gradient">Testimonials</span></h2>
+                <div class="row g-4 mt-3 text-center">
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-secondary bg-body-surface shadow-sm">
+                            <p class="fst-italic text-muted mb-4">"The dentists here are extremely gentle. I had three
+                                cavity fillings done completely painlessly, and they look completely natural."</p>
+                            <div class="d-flex flex-column align-items-center mt-auto pt-3 border-top border-secondary">
+                                <img src="assets/images/team_1.png" alt="Patient" class="rounded-circle mb-2"
+                                    style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">Alex Chen</div>
+                                    <small class="text-muted">Patient (General Care)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-secondary bg-body-surface shadow-sm">
+                            <p class="fst-italic text-muted mb-4">"My daughter's aligner treatment was amazing. The
+                                staff was incredibly caring at every appointment, and her smile is beautiful now."</p>
+                            <div class="d-flex flex-column align-items-center mt-auto pt-3 border-top border-secondary">
+                                <img src="assets/images/team_2.png" alt="Parent" class="rounded-circle mb-2"
+                                    style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">Sarah Jenkins</div>
+                                    <small class="text-muted">Parent of Orthodontic Patient</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-secondary bg-body-surface shadow-sm">
+                            <p class="fst-italic text-muted mb-4">"I received a dental implant here. The procedure was
+                                smooth and the recovery was quick. This clinic represents dental care at its best."</p>
+                            <div class="d-flex flex-column align-items-center mt-auto pt-3 border-top border-secondary">
+                                <img src="assets/images/team-ceo.png" alt="Patient" class="rounded-circle mb-2"
+                                    style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">David Kim</div>
+                                    <small class="text-muted">Patient (Implantology)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Latest Insights -->
+        <section class="py-4 mb-4">
+            <div class="container text-center">
+                <h2 class="mb-5 text-center fw-bold">Oral Care <span class="text-gradient">Insights</span></h2>
+                <p class="text-muted">Helpful tips, guides, and updates on maintaining a healthy, radiant smile.</p>
+
+                <div class="row g-4 mt-3 text-center mb-5">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden shadow-sm">
+                            <img src="assets/images/card-daily-flossing.jpg" class="card-img-top"
+                                alt="Dental Flossing Guide" style="height: 180px; object-fit: cover;">
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h5 class="card-title fw-bold">The Importance of Daily Flossing</h5>
+                                <p class="card-text text-muted small flex-grow-1">Discover how a simple daily habit can
+                                    prevent plaque buildup, keep gums healthy, and prevent systemic inflammation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden shadow-sm">
+                            <img src="assets/images/card-veneers-whitening.jpg" class="card-img-top"
+                                alt="Veneers vs Whitening" style="height: 180px; object-fit: cover;">
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h5 class="card-title fw-bold">Veneers vs. Whitening: Which is Best?</h5>
+                                <p class="card-text text-muted small flex-grow-1">We explore the differences in cost,
+                                    procedure time, durability, and visual results to help you choose the right path.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-secondary bg-body-surface overflow-hidden shadow-sm">
+                            <img src="assets/images/card-toddler-dental.jpg" class="card-img-top"
+                                alt="Dental Care Guide for Toddlers" style="height: 180px; object-fit: cover;">
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h5 class="card-title fw-bold">Dental Care Guide for Toddlers</h5>
+                                <p class="card-text text-muted small flex-grow-1">Establishing early oral care habits
+                                    from baby teeth onward. What you need to know about fluoride, brushing, and first
+                                    visits.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="blog.html" class="btn btn-outline-custom">Read Our Dental Blog</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mega Footer -->
+    <footer class="mega-footer">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand d-flex align-items-center gap-2 fs-4 fw-bold" href="index.html"
+                        style="padding: 0;">
+                        <img src="assets/images/logo11.png" alt="Premium Oral Care Logo" width="36" height="36"
+                            class="rounded-circle">
+                        Premium Oral Care
+                    </a>
+                    <p class="text-muted pe-lg-4 mb-4">Premium Premium Oral Care and comprehensive oral care center
+                        dedicated to healthy smiles for the whole family.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#"
+                            class="btn btn-outline-custom rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width: 42px; height: 42px;" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-facebook" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="btn btn-outline-custom rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width: 42px; height: 42px;" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-linkedin" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="btn btn-outline-custom rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width: 42px; height: 42px;" title="X (Twitter)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="btn btn-outline-custom rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width: 42px; height: 42px;" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-instagram" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-heading">Clinic</h5>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="contact.html" class="footer-link">Book Appointment</a>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-heading">Patient Info</h5>
+                    <a href="blog.html" class="footer-link">Blog & Insights</a>
+                    <a href="solutions.html" class="footer-link">Treatments</a>
+                    <a href="#" class="footer-link">Guides</a>
+                    <a href="#" class="footer-link">FAQs</a>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="footer-heading">Stay Updated</h5>
+                    <p class="text-muted mb-3">Subscribe to our newsletter for oral health tips, promotions, and clinic
+                        updates.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control bg-transparent border-secondary"
+                            placeholder="Enter email" aria-label="Email" required>
+                        <button class="btn btn-primary-custom px-4" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="text-muted">&copy; 2026 Premium Oral Care. All rights reserved.</div>
+                <div class="d-flex gap-3 mt-3 mt-md-0">
+                    <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+                    <a href="#" class="text-muted text-decoration-none">Cookies</a>
+                    <a href="#" class="text-muted text-decoration-none">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="backToTop" title="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-up"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+        </svg>
+    </a>
+</body>
+
+</html>
